@@ -24,9 +24,11 @@ int main(int argc, char *argv[]){
     if( my_rank ==0 ){ // code for process 0 - the sending process
         double start = MPI_Wtime();
         for(int j=0;j<5;j++){
-            char *data_send = (char *)(calloc(data_size[i], sizeof(char)));
-            MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, 1, 99, MPI_COMM_WORLD);
-            free(data_send);
+            for(int p=0;p<100;p++){
+                char *data_send = (char *)(calloc(data_size[i], sizeof(char)));
+                MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, 1, 99, MPI_COMM_WORLD);
+                free(data_send);
+            }
         }
         double end = MPI_Wtime();
         printf("Sending process time %f\n", (end-start)/5);
@@ -35,14 +37,16 @@ int main(int argc, char *argv[]){
     else if( my_rank == 1 ){
         double start = MPI_Wtime();
         for(int j=0;j<5;j++){
-            char *data_recv = (char *)(calloc(data_size[i], sizeof(char)));
-            int count;
-            MPI_Status status;
-            MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, 99, MPI_COMM_WORLD, &status);
-            MPI_Get_count(&status, MPI_UNSIGNED_CHAR, &count);
+            for(int p=0;p<100;p++){
+                char *data_recv = (char *)(calloc(data_size[i], sizeof(char)));
+                int count;
+                MPI_Status status;
+                MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, 99, MPI_COMM_WORLD, &status);
+                MPI_Get_count(&status, MPI_UNSIGNED_CHAR, &count);
             /* printf("Received %d bytes of data\n", count); */
             /* fflush(stdout); */
-            free(data_recv);
+                free(data_recv);
+            }
         }
         double end = MPI_Wtime();
         printf("Receiving process time %f\n", (end-start)/5);

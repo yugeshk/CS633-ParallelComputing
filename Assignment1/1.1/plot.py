@@ -11,7 +11,7 @@ while line:
 
 data_size = [128, 1024, 65536, 1048576, 4194304]
 data_size = [d/(1024*1024) for d in data_size]
-speed = [a/b for (a,b) in zip(data_size, times)]
+speed = [100*a/b for (a,b) in zip(data_size, times)]
 plt.plot(data_size, speed)
 plt.xlabel("Size in MB")
 plt.ylabel("Speed of transfer in MBps")

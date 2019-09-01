@@ -21,55 +21,51 @@ int main(int argc, char *argv[]){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
     // Now for the parallel computing part
-    
+    char *data_send = (char *)(calloc(data_size[i], sizeof(char)));
+    char *data_recv = (char *)(calloc((world_size)*data_size[i], sizeof(char)));
+    MPI_Request request;
+    MPI_Status status;
+
     if (my_rank){ //code for all the sending processes
         //Start blocking call.
         start = MPI_Wtime();
         for(int j=0;j<5;j++){
-            char *data_send = (char *)(calloc(data_size[i], sizeof(char)));
-            MPI_Gather(data_send, data_size[i], MPI_UNSIGNED_CHAR, NULL, NULL, MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD);
-            free(data_send);
+            MPI_Gather(data_send, data_size[i], MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD);
         }
         end = MPI_Wtime();
         printf("Sending blocking call time %f\n", (end-start)/5);
 
         //start non-blocking call
-        double start = MPI_Wtime();
+        start = MPI_Wtime();
         for(int j=0;j<5;j++){
-            char *data_send = (char *)(calloc(data_size[i], sizeof(char)));
-            MPI_Igather(data_send, data_size[i], MPI_UNSIGNED_CHAR, NULL, NULL, MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD, NULL);
-            free(data_send);
+            MPI_Igather(data_send, data_size[i], MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD, &request);
         }
         end = MPI_Wtime();
         printf("Sending non-blocking call time %f\n", (end-start)/5);
+        MPI_Wait(&request, &status);
 
     }
     
     if (my_rank == 0){  //code for process 0 - the receiving process
         start = MPI_Wtime();
         for(int j=0;j<5;j++){
-            char *data_recv = (char *)(calloc((world_size-1)*data_size[i], sizeof(char)));
-            MPI_Gather(NULL, NULL, MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD);
-            free(data_recv);
+            MPI_Gather(data_send, data_size[i], MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD);
         }
         end = MPI_Wtime();
         printf("Receiving blocking call %f\n", (end-start)/5);
 
         start = MPI_Wtime();
-        MPI_Request request;
-        MPI_Status status;
         for(int j=0;j<5;j++){
-            char *data_recv = (char *)(calloc((world_size-1)*data_size[i], sizeof(char)));
-            MPI_Igather(NULL, NULL, MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD, &request);
-            free(data_recv);
+            MPI_Igather(data_send, data_size[i], MPI_UNSIGNED_CHAR, data_recv, data_size[i], MPI_UNSIGNED_CHAR, 0, MPI_COMM_WORLD, &request);
         }
-        MPI_Wait(&request, &status);
         end = MPI_Wtime();
-        printf("Receiving blocking call %f\n", (end-start)/5);
+        printf("Receiving non-blocking call %f\n", (end-start)/5);
 
     }
 
     MPI_Finalize();
+    free(data_recv);
+    free(data_send);
     return 0;
 
 

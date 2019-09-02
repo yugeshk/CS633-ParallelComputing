@@ -1,4 +1,4 @@
-#This folder contains the following files:
+# This folder contains the following files:
 1. src.c - contains the source code
 2. plot.py - makes the plot : needs matplotlib
 3. Makefile - compiles the program

@@ -6,4 +6,4 @@ bash run_2.sh
 bash run_4.sh
 bash run_8.sh
 
-# python plot.py
+python plot1.py

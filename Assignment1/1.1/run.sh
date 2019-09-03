@@ -66,4 +66,4 @@ rm tmp.txt
 
 make clean
 
-python plot.py
+python plot1.py

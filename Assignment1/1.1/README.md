@@ -2,7 +2,9 @@
 1. src.c - contains the source code
 2. plot1.py - makes the plot : needs matplotlib
 3. Makefile - compiles the program
-4. run.sh - runs the program on csews43 and csews45
+4. run.sh - runs the program on two hosts : currently starts form 25 (can be
+   altered to start from whereever by changing the starting ws from the _seq_
+   bash command)
 5. pinger.sh - takes 2 hosts starting from a particular host (currently set to 25) to create the hostfile
 
 The output of run.sh are a bunch of x.txt files (for each data size) that contains sendtime,receivetime as

@@ -6,7 +6,7 @@
 5. run\_2.sh - runs the scripts for 2 host requirement 
 6. run\_4.sh - runs the scripts for 4 host requirement 
 7. run\_8.sh - runs the scripts for 8 host requirement 
-8. pinger.sh - takes 2 hosts starting from a particular host (currently set to 25) to create the hostfile
+8. pinger.sh - takes 2 hosts starting from a particular host (currently set to 1) to create the hostfile
 
 The output of run.sh are a bunch of x\_(un)blocking\_y.txt files (for each
 node\_size _x_ and each data size _y_). Each file consists of 5 data times from

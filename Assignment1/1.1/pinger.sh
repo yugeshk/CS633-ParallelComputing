@@ -4,7 +4,7 @@ rm hostfile.txt > /dev/null 2>&1
 touch hostfile.txt
 hosts=()
 count=0
-for i in $(seq 1 1 60)
+for i in $(seq 1 1 54)
 do
     ping -c2 csews$i.cse.iitk.ac.in > /dev/null
     if [ $? -eq 0 ]

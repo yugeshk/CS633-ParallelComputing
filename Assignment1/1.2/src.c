@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]){
     
     //Initialize variables
-    int data_size[5] = {128, 1024, 65536, 1048576, 4194304};
+    int data_size[5] = {128, 1024, 65536, 262144, 1048576};
     double start, end;
     int count;
     int i = atoi(argv[1]);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
                 MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, 0, 99, MPI_COMM_WORLD);
             }
         end = MPI_Wtime();
-        time_taken = (end-start)/5;
+        time_taken = (end-start);
         MPI_Reduce(&time_taken, &max_time, 1, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
         }
 
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
                 MPI_Wait(&request, MPI_STATUS_IGNORE);
             }
         end = MPI_Wtime();
-        time_taken = (end-start)/5;
+        time_taken = (end-start);
         MPI_Reduce(&time_taken, &max_time, 1, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
         }
         free(data_send);
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
                 }
             }
             end = MPI_Wtime();
-            time_taken = (end-start)/5;
+            time_taken = (end-start);
             MPI_Reduce(&time_taken, &max_time, 1, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
             printf("Blocking call1 time %f\n", max_time);
         }
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]){
                 MPI_Waitall(world_size-1, r, MPI_STATUSES_IGNORE);
             }
             end = MPI_Wtime();
-            time_taken = (end-start)/5;
+            time_taken = (end-start);
             MPI_Reduce(&time_taken, &max_time, 1, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
             printf("Non-blocking call2 time %f\n", max_time);
         }

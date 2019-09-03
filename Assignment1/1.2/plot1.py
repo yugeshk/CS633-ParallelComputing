@@ -15,7 +15,7 @@ for n_nodes in [2,4,8]:
         speed = []
         while line:
             time.append(float(line))
-            speed.append(data_size[d_size-1]*100/(1024*1024*float(line)))
+            speed.append(5*data_size[d_size-1]*100/(1024*1024*float(line)))
             line = data_file.readline()
 
         times1.append(time)
@@ -34,7 +34,7 @@ for n_nodes in [2,4,8]:
         speed = []
         while line:
             time.append(float(line))
-            speed.append(data_size[d_size-1]*100/(1024*1024*float(line)))
+            speed.append(5*data_size[d_size-1]*100/(1024*1024*float(line)))
             line = data_file.readline()
 
         times1.append(time)

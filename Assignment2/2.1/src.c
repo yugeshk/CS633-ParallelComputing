@@ -62,23 +62,23 @@ int main(int argc, char *argv[]){
                 end = MPI_Wtime();
                 times[pairs[l][0]][pairs[l][1]] = end-start;
 
-                    start = MPI_Wtime();
-                    MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][1], 99, MPI_COMM_WORLD, &status);
-                    end = MPI_Wtime();
-                    times[pairs[l][1]][pairs[l][0]] = end-start;
-                }
-                else if(my_rank == pairs[l][1]){
-                    start = MPI_Wtime();
-                    MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][0], 99, MPI_COMM_WORLD, &status);
-                    end = MPI_Wtime();
-                    times[pairs[l][0]][pairs[l][1]] = end-start;
-
-                    start = MPI_Wtime();
-                    MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][0], 99, MPI_COMM_WORLD);
-                    end = MPI_Wtime();
-                    times[pairs[l][1]][pairs[l][0]] = end-start;
-                }
+                start = MPI_Wtime();
+                MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][1], 99, MPI_COMM_WORLD, &status);
+                end = MPI_Wtime();
+                times[pairs[l][1]][pairs[l][0]] = end-start;
             }
+            else if(my_rank == pairs[l][1]){
+                start = MPI_Wtime();
+                MPI_Recv(data_recv, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][0], 99, MPI_COMM_WORLD, &status);
+                end = MPI_Wtime();
+                times[pairs[l][0]][pairs[l][1]] = end-start;
+
+                start = MPI_Wtime();
+                MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][0], 99, MPI_COMM_WORLD);
+                end = MPI_Wtime();
+                times[pairs[l][1]][pairs[l][0]] = end-start;
+            }
+        }
 
         //generate the next list of pairs for same dist
         int pairs_new[limit][2];

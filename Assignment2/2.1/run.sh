@@ -13,3 +13,5 @@ do
 done
 
 make clean
+
+python3 plot.py

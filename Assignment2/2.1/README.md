@@ -30,3 +30,9 @@ plotted the central line zeroed out. It shows a few clear trends -
 3. Topology - we notice that bandwidth decreases with increasing distance (as
    the nodes in the KD lab are not a completely conntected graph), we see that
    nodes further away report less bandwidth.
+
+The bandwidth observed is not as good as it should theoretically be - this could
+also be because of the order in which the pairs are generated. It may so be the
+case that the particular algorithm adopted somehow created a conjestion between
+the nodes and cases delays. There may be better hashing methods as alternate
+approaches.

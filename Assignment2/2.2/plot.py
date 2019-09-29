@@ -1,6 +1,7 @@
 import matplotlib
 matplotlib.use("Agg")
 from matplotlib import pyplot as plt
+import pandas as pd
 import numpy as np
 import seaborn as sns
 import sys
@@ -16,10 +17,12 @@ for np in [8,16,32]:
                 with open(filename, "r") as data_file:
                     times_array = [[float(digit) for digit in line.split()] for line in data_file]
                     for t in times_array:
-                        df = df.append({"ppn": ppn, "data_size": np, "algo": "bcast", "bandwidth": d_size*(np-1)/(t[0]*1024*1024)})
-                        df = df.append({"ppn": ppn, "data_size": np, "algo": "new_bcast", "bandwidth": d_size*(np-1)/(t[1]*1024*1024)})
+                        df = df.append({"ppn": ppn, "data_size": d_size, "algo": "bcast", "bandwidth": d_size*(np-1)/(t[0]*1024*1024)}, ignore_index=True)
+                        df = df.append({"ppn": ppn, "data_size": d_size, "algo": "new_bcast", "bandwidth": d_size*(np-1)/(t[1]*1024*1024)}, ignore_index = True)
 
 
-    catplot(kind="box", x="data_size", y="bandwidth", hue="algo", col="ppn", data=df)
+    sns.catplot(kind="box", x="data_size", y="bandwidth", hue="algo", col="ppn", data=df)
 
     plt.savefig("plot-{}.png".format(np))
+
+print("Plots saved as plot-8.png, plot-16.png, plot-32.png")

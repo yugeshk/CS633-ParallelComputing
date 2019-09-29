@@ -63,5 +63,6 @@ for d_size in [0,1,2]:
     data = pd.DataFrame({'X': X, 'Y': Y, 'Z': Z})
     data_pivoted = data.pivot("Y", "X", "Z")
     ax = sns.heatmap(data_pivoted)
-    plt.savefig("plot{}_zeroed.png".format(d_size))
+    plt.savefig("plots/plot{}_zeroed.png".format(d_size))
 
+print("Plots saved in plots folder")

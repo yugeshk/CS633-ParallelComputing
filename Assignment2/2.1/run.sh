@@ -15,4 +15,6 @@ done
 
 make clean
 
+rm -rf plots 2>/dev/null
+mkdir plots
 python3 plot.py

@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
         int pairs[15][2];
         int curr_node = 0;
         int skip_at = curr_node+dist;
-        /* printf("Generating paris\n"); */
+
         while(curr_node+dist<=29){
             pairs[limit][0]=curr_node;
             pairs[limit][1]=curr_node+dist;
@@ -55,7 +55,6 @@ int main(int argc, char *argv[]){
         }
         //pairs generated upto limit in pairs[][]
         for(int l=0;l<limit;l++){
-            /* printf("Trying comm with %d %d %d\n", l, pairs[l][0], pairs[l][1]); */
             if(my_rank == pairs[l][0]){
                 start = MPI_Wtime();
                 MPI_Send(data_send, data_size[i], MPI_UNSIGNED_CHAR, pairs[l][1], 99, MPI_COMM_WORLD);
@@ -89,7 +88,6 @@ int main(int argc, char *argv[]){
 
         //pairs generated upto limit in pairs_new[][]
         for(int l=0;l<limit;l++){
-            /* printf("Trying comm with %d %d %d\n", l, pairs[l][0], pairs[l][1]); */
             if(pairs_new[l][1] > 29){
                 continue;
             }

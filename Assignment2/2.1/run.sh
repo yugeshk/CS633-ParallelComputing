@@ -1,7 +1,7 @@
 #!/bin/bash
 
 make all
-bash pinger.sh
+#bash pinger.sh
 
 for i in {1..10}
 do

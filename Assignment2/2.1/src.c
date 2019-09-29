@@ -79,6 +79,7 @@ int main(int argc, char *argv[]){
             }
         }
 
+        if(i!=0){ MPI_Barrier(MPI_COMM_WORLD); }
         //generate the next list of pairs for same dist
         int pairs_new[limit][2];
         for(int l=0;l<limit;l++){
@@ -89,7 +90,7 @@ int main(int argc, char *argv[]){
         //pairs generated upto limit in pairs_new[][]
         for(int l=0;l<limit;l++){
             if(pairs_new[l][1] > 29){
-                continue;
+                break;
             }
             if(my_rank == pairs_new[l][0]){
                 start = MPI_Wtime();
@@ -114,6 +115,7 @@ int main(int argc, char *argv[]){
                 times[pairs_new[l][1]][pairs_new[l][0]] = end-start;
             }
         }
+        if(i!=0) {MPI_Barrier(MPI_COMM_WORLD);}
     }
         
     //Communication with self

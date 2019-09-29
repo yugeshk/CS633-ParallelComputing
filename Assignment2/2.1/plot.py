@@ -41,28 +41,40 @@ for d_size in [0,1,2]:
     data = pd.DataFrame({'X': X, 'Y': Y, 'Z': Z})
     data_pivoted = data.pivot("Y", "X", "Z")
     ax = sns.heatmap(data_pivoted)
-    plt.savefig("plot{}.png".format(d_size))
+    if d_size == 0:
+        plt.savefig("plot-64.png".format(d_size))
+    elif d_size == 1:
+        plt.savefig("plot-512.png".format(d_size))
+    else:
+        plt.savefig("plot-2.png".format(d_size))
 
-    fig = plt.figure(figsize=(13,13))
+    """
+    Code for plotting zeroed out central line
+    """
 
-    X, Y, Z = [], [], [];
-    a=0
-    for i in time_array:
-        b=0
-        for j in i:
-            X.append(a)
-            Y.append(b)
-            if a == b:
-                Z.append(0)
-            else:
-                bandwidth = data_size[d_size]/(j*1024*1024)
-                Z.append(bandwidth)
-            b = b+1
-        a = a+1
+    # fig = plt.figure(figsize=(13,13))
 
-    data = pd.DataFrame({'X': X, 'Y': Y, 'Z': Z})
-    data_pivoted = data.pivot("Y", "X", "Z")
-    ax = sns.heatmap(data_pivoted)
-    plt.savefig("plots/plot{}_zeroed.png".format(d_size))
+    # X, Y, Z = [], [], [];
+    # a=0
+    # for i in time_array:
+    #     b=0
+    #     for j in i:
+    #         X.append(a)
+    #         Y.append(b)
+    #         if a == b:
+    #             Z.append(0)
+    #         else:
+    #             bandwidth = data_size[d_size]/(j*1024*1024)
+    #             Z.append(bandwidth)
+    #         b = b+1
+    #     a = a+1
 
-print("Plots saved in plots folder")
+    # data = pd.DataFrame({'X': X, 'Y': Y, 'Z': Z})
+    # data_pivoted = data.pivot("Y", "X", "Z")
+    # ax = sns.heatmap(data_pivoted)
+    # if d_size == 0:
+    #     plt.savefig("plot-64_zeroed.png".format(d_size))
+    # elif d_size == 1:
+    #     plt.savefig("plot-512_zeroed.png".format(d_size))
+    # else:
+    #     plt.savefig("plot-2_zeroed.png".format(d_size))

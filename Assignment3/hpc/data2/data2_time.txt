@@ -1,0 +1,120 @@
+4,Pre Processing Time,0.055802
+8,Pre Processing Time,0.272882
+12,Pre Processing Time,0.298563
+16,Pre Processing Time,0.286858
+20,Pre Processing Time,0.279666
+24,Pre Processing Time,0.286432
+28,Pre Processing Time,0.299032
+32,Pre Processing Time,0.307612
+4,Processing Time,0.229845
+8,Processing Time,0.124261
+12,Processing Time,0.101747
+16,Processing Time,0.082207
+20,Processing Time,0.073099
+24,Processing Time,0.065979
+28,Processing Time,0.058800
+32,Processing Time,0.054999
+4,Total Time,0.285647
+8,Total Time,0.397143
+12,Total Time,0.400310
+16,Total Time,0.369065
+20,Total Time,0.352765
+24,Total Time,0.352411
+28,Total Time,0.357832
+32,Total Time,0.362611
+4,Pre Processing Time,0.043394
+8,Pre Processing Time,0.272557
+12,Pre Processing Time,0.288564
+16,Pre Processing Time,0.293241
+20,Pre Processing Time,0.269128
+24,Pre Processing Time,0.257459
+28,Pre Processing Time,0.322129
+32,Pre Processing Time,0.302615
+4,Processing Time,0.236443
+8,Processing Time,0.115050
+12,Processing Time,0.106501
+16,Processing Time,0.089956
+20,Processing Time,0.066718
+24,Processing Time,0.066584
+28,Processing Time,0.061465
+32,Processing Time,0.052337
+4,Total Time,0.300936
+8,Total Time,0.400494
+12,Total Time,0.377368
+16,Total Time,0.381898
+20,Total Time,0.357268
+24,Total Time,0.353935
+28,Total Time,0.370980
+32,Total Time,0.371069
+4,Pre Processing Time,0.057529
+8,Pre Processing Time,0.268205
+12,Pre Processing Time,0.318991
+16,Pre Processing Time,0.299772
+20,Pre Processing Time,0.265017
+24,Pre Processing Time,0.292255
+28,Pre Processing Time,0.302803
+32,Pre Processing Time,0.297527
+4,Processing Time,0.229164
+8,Processing Time,0.126120
+12,Processing Time,0.098673
+16,Processing Time,0.075985
+20,Processing Time,0.069654
+24,Processing Time,0.052314
+28,Processing Time,0.063177
+32,Processing Time,0.080770
+4,Total Time,0.279419
+8,Total Time,0.400888
+12,Total Time,0.393082
+16,Total Time,0.359450
+20,Total Time,0.359425
+24,Total Time,0.366530
+28,Total Time,0.358225
+32,Total Time,0.375459
+4,Pre Processing Time,0.040395
+8,Pre Processing Time,0.273870
+12,Pre Processing Time,0.288309
+16,Pre Processing Time,0.282756
+20,Pre Processing Time,0.271377
+24,Pre Processing Time,0.284756
+28,Pre Processing Time,0.300628
+32,Pre Processing Time,0.323611
+4,Processing Time,0.221973
+8,Processing Time,0.112244
+12,Processing Time,0.115750
+16,Processing Time,0.077203
+20,Processing Time,0.075128
+24,Processing Time,0.074356
+28,Processing Time,0.062572
+32,Processing Time,0.050050
+4,Total Time,0.294082
+8,Total Time,0.392099
+12,Total Time,0.413272
+16,Total Time,0.370256
+20,Total Time,0.343374
+24,Total Time,0.348073
+28,Total Time,0.358626
+32,Total Time,0.375462
+4,Pre Processing Time,0.051587
+8,Pre Processing Time,0.262992
+12,Pre Processing Time,0.304009
+16,Pre Processing Time,0.278869
+20,Pre Processing Time,0.299861
+24,Pre Processing Time,0.286918
+28,Pre Processing Time,0.299523
+32,Pre Processing Time,0.324257
+4,Processing Time,0.233856
+8,Processing Time,0.125736
+12,Processing Time,0.124633
+16,Processing Time,0.081862
+20,Processing Time,0.083223
+24,Processing Time,0.082053
+28,Processing Time,0.067955
+32,Processing Time,0.048316
+4,Total Time,0.283606
+8,Total Time,0.384658
+12,Total Time,0.414868
+16,Total Time,0.361362
+20,Total Time,0.339270
+24,Total Time,0.347540
+28,Total Time,0.346939
+32,Total Time,0.370674
